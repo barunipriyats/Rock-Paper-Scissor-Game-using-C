@@ -1,0 +1,194 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int generateRandomNumber(int n)
+{
+  srand(time(NULL));
+  return rand() % n;
+}
+void fifthtry(int *human,int *temp,int *human_score,int *computer_score)
+{  
+  sleep(2);
+  if(*human==1 && *temp==1)
+  {
+   printf("Omg! That's a draw. No one wins!\n\n");
+   *human_score=*human_score+0;
+   *computer_score=*computer_score+0;
+  }
+  else if(*human==1 && *temp==2)
+  {
+   printf("Oh, no! Computer wins!\n\n");
+   *human_score=*human_score+0;
+   *computer_score=*computer_score+1;
+  }
+  else if(*human==1 && *temp==3)
+  {
+   printf("Wow, great! You win!\n\n");
+   *human_score=*human_score+1;
+   *computer_score=*computer_score+0;
+  }
+  else if(*human==2 && *temp==1)
+  {
+    printf("Wow, great! You win!\n\n");
+    *human_score=*human_score+1;
+    *computer_score=*computer_score+0;
+  }
+  else if(*human==2 && *temp==2)
+  {
+   printf("Omg! That's a draw. No one wins!\n\n");
+   *human_score=*human_score+0;
+   *computer_score=*computer_score+0;
+  }
+  else if(*human==2 && *temp==3)
+  {
+   printf("Oh, no! Computer wins!\n\n");
+   *human_score=*human_score+0;
+   *computer_score=*computer_score+1;
+  }
+  else if(*human==3 && *temp==1)
+  {
+   printf("Oh, no! Computer wins!\n\n");
+   *human_score=*human_score+0;
+   *computer_score=*computer_score+1;
+  }
+  else if(*human==3 && *temp==2)
+  {
+   printf("Wow, great! You win!\n\n");
+   *human_score=*human_score+1;
+   *computer_score=*computer_score+0;
+  }
+  else//(*human==3 && *temp==3)
+  {
+   printf("Omg! That's a draw. No one wins!\n\n");
+   *human_score=*human_score+0;
+   *computer_score=*computer_score+0;
+  }
+}
+int main(void) 
+{
+ int human,human_score=0;
+ int computer_score=0,computer;
+ int number,temp;
+ system("clear");
+ printf("Hey there!\n");
+ sleep(1);
+ printf("Let us have some fun by playing the most interesting hand game of our childhood!\n");
+ sleep(4);
+ printf("The so called 'ROCK PAPER SCISSORS'\n");
+ sleep(1);
+ printf("Choose one:\n1.Rock\n2.Paper\n3.Scissors\n");
+ sleep(1);
+ printf("Press 1 for Rock, 2 for Paper and 3 for Scissors\n");
+ sleep(3);
+ printf("It is gonna be YOU VS COMPUTER\n");
+ sleep(2);
+ printf("Let us see who wins the match with the highest score out of 5 chances!\n");
+ sleep(2);
+ for(int i=0;i<5;i++)
+ { choice:sleep(1);
+   if(i==0)
+   printf("\n1st try - Enter your choice: ");
+   else if(i==1)
+   printf("2nd try - Enter your choice: ");
+   else if(i==2)
+   printf("3rd try - Enter your choice: ");
+   else if(i==3)
+   printf("4th try - Enter your choice: ");
+   else
+   printf("5th try - Enter your choice: ");
+   scanf("%d",&human);//getting values in integer format
+   sleep(0.5);
+   if(human==1)
+   printf("You picked: Rock\n");
+   else if(human==2)
+   printf("You picked: Paper\n");
+   else if(human==3)
+   printf("You picked: Scissors\n");
+   else
+   {
+     printf("Ahhh! That's an invalid choice. Pick again!\n\n");
+     goto choice;
+   }
+   temp = generateRandomNumber(3) + 1;//function call
+   sleep(1);
+   if(temp==1)
+   printf("Computer picked: Rock\n");
+   else if(temp==2)
+   printf("Computer picked: Paper\n");
+   else
+   printf("Computer picked: Scissors\n");
+   if(i==4)
+   fifthtry(&human,&temp,&human_score,&computer_score);//function call
+   else
+   {
+     sleep(2);
+     if(human==1 && temp==1)
+     {
+       printf("Omg! That's a draw. No one wins!\nBetter luck next time...\n\n");
+       human_score=human_score+0;
+       computer_score=computer_score+0;
+      }
+      else if(human==1 && temp==2)
+      {
+       printf("Oh, no! Computer wins!\nBetter luck next time...\n\n");
+       human_score=human_score+0;
+       computer_score=computer_score+1;
+      }
+      else if(human==1 && temp==3)
+      {
+       printf("Wow, great! You win!\n\n");
+       human_score=human_score+1;
+       computer_score=computer_score+0;
+      }
+      else if(human==2 && temp==1)
+      {
+       printf("Wow, great! You win!\n\n");
+       human_score=human_score+1;
+       computer_score=computer_score+0;
+      }
+      else if(human==2 && temp==2)
+      {
+       printf("Omg! That's a draw. No one wins!\nBetter luck next time...\n\n");
+       human_score=human_score+0;
+       computer_score=computer_score+0;
+      }
+      else if(human==2 && temp==3)
+      {
+       printf("Oh, no! Computer wins!\nBetter luck next time...\n\n");
+       human_score=human_score+0;
+       computer_score=computer_score+1;
+      }
+      else if(human==3 && temp==1)
+      {
+       printf("Oh, no! Computer wins!\nBetter luck next time...\n\n");
+       human_score=human_score+0;
+       computer_score=computer_score+1;
+      }
+      else if(human==3 && temp==2)
+      {
+       printf("Wow, great! You win!\n\n");
+       human_score=human_score+1;
+       computer_score=computer_score+0;
+      }
+      else//(human==3 && temp==3)
+      {
+       printf("Omg! That's a draw. No one wins!\nBetter luck next time...\n\n");
+       human_score=human_score+0;
+       computer_score=computer_score+0;
+      }
+    }
+  }
+  sleep(1);
+  printf("Your score:%d\n",human_score);
+  sleep(1);
+  printf("Computer score:%d\n",computer_score);
+  sleep(1);
+  if(human_score>computer_score)
+  printf("CONGRATULATIONS! YOU WON!\n\n\n");
+  else if(human_score<computer_score)
+  printf("AWW! BAD LUCK! COMPUTER WON!\n\n\n");
+  else
+  printf("AWW! THAT ENDS WITH A DRAW MATCH!\n\n\n");
+  sleep(2);
+  return 0;
+}
